@@ -1,29 +1,43 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <transition name="router-fade" mode="out-in">
+      <keep-alive>
+        <router-view />
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
 <style lang="scss">
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  font-size: 16px;
+  div {
+    box-sizing: border-box;
+  }
+  .icon {
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 6px
+  }
+  /*::-webkit-scrollbar-track {*/
+  /*  -webkit-box-shadow: inset 0 0 4px ;*/
+  /*  border-radius: 0.5rem;*/
+  /*}*/
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background: #c7fed0 !important;
+    -webkit-box-shadow: inset 0 0 6px ;
   }
 }
+
 </style>
